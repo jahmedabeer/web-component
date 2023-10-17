@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Component</title>
     <style>
-        /* button{
+        button{
             padding: .5rem;
             background-color: #232120;
             color: whitesmoke;
             cursor: pointer;
             outline: 1px solid #ddd;
             border-radius: 2px;
-        } */
+        }
     </style>
 </head>
 <body>
@@ -32,27 +32,16 @@
         {
             constructor()
             {
-                super()
+                super();
+                this.shadow = this.attachShadow({mode:'open'})
             }
 
             // lifecycle hook
             connectedCallback()
             {
-                const button = `
-                    <style>
-                        button
-                        {
-                            padding: .5rem;
-                            background-color: #232120;
-                            color: whitesmoke;
-                            cursor: pointer;
-                            outline: 1px solid #ddd;
-                            border-radius: 2px;
-                        }
-                    </style>
-                    <button>${this.innerText}</button>
-                `
-                this.innerHTML = button;
+                const button = document.createElement('button')
+                button.innerHTML = this.innerHTML
+                this.shadow.append(button)
             }
         }
         customElements.define('custom-btn',CustomButton);
