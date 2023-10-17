@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Component</title>
     <style>
-        #custom-btn{
+        .custom-btn{
             padding: .5rem;
             background-color: #232120;
             color: whitesmoke;
@@ -19,7 +19,7 @@
 
     <div>
         <h3>HTML BUTTON</h3>
-        <button>Click Me</button>
+        <button class="custom-btn">Click Me</button>
     </div>
     <hr>
     <div>
@@ -41,8 +41,25 @@
             {
                 const button = document.createElement('button')
                 button.innerHTML = this.innerHTML
-                button.setAttribute('id','custom-btn')
+                button.setAttribute('class','custom-btn')
+                this.shadow.append(this.#createStyle());
                 this.shadow.append(button)
+            }
+
+            #createStyle()
+            {
+                const style = document.createElement('style')
+                style.innerText = `
+                    button{
+                        padding: .5rem;
+                        background-color: pink;
+                        color: #666;
+                        cursor: pointer;
+                        outline: 1px solid #999;
+                        border-radius: 2px;
+                    }
+                `
+                return style;
             }
         }
         customElements.define('custom-btn',CustomButton);
