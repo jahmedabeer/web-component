@@ -1,17 +1,16 @@
- 
-    * Web components consists of three main technologies  
+- Web components consists of three main technologies  
     - Custom elements ( two types )
         - Customized built-in elements
         - Autonomous custom elements
     - Shadow DOM
     - HTML templates
 
-    * Rules on creating custom elements
+- Rules on creating custom elements
     - The name of a custom element must contain a dash (-). So <x-tags>, <my-element>, and <my-awesome-app> are all valid names, while <tabs> and <foo_bar> are not. This requirement is so the HTML parser can distinguish custom elements from regular elements.
     - You can't register the same tag more than once. Attempting to do so will throw a DOMException
     - Custom elements cannot be self-closing because HTML only allows a few elements to be self-closing. Always write a closing tag (<app-drawer></app-drawer>)
 
-    * Custom element reactions
+    - Custom element reactions
         - A custom element can define special lifecycle hooks for running code during interesting times of its existence. These are called custom element reactions.
     
     - constructor
@@ -32,8 +31,7 @@
     
     - adoptedCallback
 
-
     
-    * The upgrade occurs when an unknown tag declared in the HTML code is defined afterwards (by the customElements.define() method). The "unknown" element becomes a "custom" element. The constructor() and connectedCallback() methods are then called.
+    - The upgrade occurs when an unknown tag declared in the HTML code is defined afterwards (by the customElements.define() method). The "unknown" element becomes a "custom" element. The constructor() and connectedCallback() methods are then called.
 
-    * Extending HTMLElement ensures the custom element inherits the entire DOM API and means any properties/methods that you add to the class become part of the element's DOM interface
+    - Extending HTMLElement ensures the custom element inherits the entire DOM API and means any properties/methods that you add to the class become part of the element's DOM interface
