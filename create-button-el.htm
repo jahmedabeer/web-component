@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Component</title>
+    <style>
+        button{
+            padding: .5rem;
+            background-color: #232120;
+            color: whitesmoke;
+            cursor: pointer;
+            outline: 1px solid #ddd;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h3>HTML BUTTON</h3>
+        <button>Click Me</button>
+    </div>
+    <hr>
+    <div>
+        <h3>Custom Button</h3>
+        <custom-btn>Click Me</custom-btn>
+    </div>
+
+    <script>
+        class CustomButton extends HTMLElement
+        {
+            constructor()
+            {
+                super()
+            }
+
+            // lifecycle hook
+            connectedCallback()
+            {
+                const button = `
+                    <button>${this.innerText}</button>
+                `
+                this.innerHTML = button;
+            }
+        }
+        customElements.define('custom-btn',CustomButton);
+    </script>
+</body>
+</html>
