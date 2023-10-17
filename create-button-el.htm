@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Component</title>
     <style>
-        button{
+        #custom-btn{
             padding: .5rem;
             background-color: #232120;
             color: whitesmoke;
@@ -41,6 +41,7 @@
             {
                 const button = document.createElement('button')
                 button.innerHTML = this.innerHTML
+                button.setAttribute('id','custom-btn')
                 this.shadow.append(button)
             }
         }
